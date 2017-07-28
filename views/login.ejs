@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" >
+  <title>Gallerisa | login</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/stylesheets/main.css"> -->
+  <link rel = "stylesheet" href="/stylesheets/amco.css"
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+</head>
+
+</html>
+<body>
+
+      <!-- <nav  class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a id="arch" class="navbar-brand" href="/">GalleriesA</a>
+
+               <a id="arch" class="navbar-brand" href="/campgrounds"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+           </div>
+           <div class="collapse navbar-collapse" id="mainNav">
+               <ul class="nav navbar-nav navbar-right">
+                  <% if(!currentUser){ %>
+                   <li ><a id="arch" href="/login"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+                   <li  ><a id="arch" href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <% } else { %>
+                  <li  ><image src="<%= currentUser.avatar %>"  id="menu1" style= " height:3em; width:auto; border-radius: 5px;" class="rounded-circle"></image></li>
+                   <li ><a id="arch" href="/users/<%= currentUser._id %>">Signed In As <strong> <%= currentUser.username %></strong></a></li>
+                   <li ><a id="arch" href="/logout"><span class="glyphicon glyphicon-off"></span> LogOut</a></li>
+                  <% } %>
+               </ul>
+        </div>
+    </div>
+</nav> -->
+<header>
+  <div class="container-fluid" id="arch">
+    <div id="branding">
+      <h1><a href="/"><span style="font-size:23px" class="highlight">GallerisA</span></a></h1>
+    </div>
+    <nav style="float:left; display:inline;">
+      <ul >
+        <li><a  href="/campgrounds">Home</a></li>
+        <li><a  href="">About</a></li>
+      </ul>
+    </nav>
+    <nav style="float:right; display:inline;">
+      <ul >
+        <li class="tid"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+        <li class="tid"><a href="/register"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
+      </ul>
+
+    </nav>
+
+      <nav  class="navbar-default navbar-static-top">
+    <div class="container-fluid">
+
+           <button style="float:right; display:inline;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+           </div>
+           <div class="collapse navbar-collapse" id="mainNav">
+               <ul class="nav navbar-nav navbar-right" >
+                  <% if(!currentUser){ %>
+                   <li ><a id="arch" href="/login"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+                   <li ><a id="arch" href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <% } else { %>
+                  <li  ><image src="<%= currentUser.avatar %>"  id="menu1" style= " height:3em; width:auto; border-radius: 5px;" class="rounded-circle"></image></li>
+                   <li ><a id="arch" href="/users/<%= currentUser._id %>">Signed In As <strong> <%= currentUser.username %></strong></a></li>
+                   <li ><a id="arch" href="/logout"><span class="glyphicon glyphicon-off"></span> LogOut</a></li>
+                  <% } %>
+               </ul>
+        </div>
+    </div>
+    </nav>
+    </header>
+      <!-- <select onChange="window.location.href=this.value">
+        <option value="/login">Login</option>
+        <option value="/campgrounds">Home</option>
+        <option value="">About</option>
+        <option value="/register">SignUp!</option>
+      </select> -->
+
+
+<!-- login -->
+<div class="container">
+    <% if(error && error.length > 0){ %>
+<div class="alert alert-danger" role="alert">
+    <%= error %>
+</div>
+<% } %>
+<% if(success && success.length > 0){ %>
+    <div class="alert alert-success" role="alert">
+    <%= success %>
+</div>
+<% } %>
+<div class="container">
+<div class="row">
+<h1 style="text-align: center; color: black">Login!</h1>
+<div style="width:45%; margin: 25px auto;">
+<form action="/login" method="POST">
+    <div class="form-group">
+    <input class="form-control" type="text" name="username" placeholder="username" autofocus required>
+    </div>
+    <div class="form-group">
+    <input class="form-control" type="password" name="password" placeholder="password" required>
+    </div>
+    <div class="form-group">
+    <input class="btn btn-lg btn-primary btn-block" id="arch"  type="submit" value="LogIn!">
+    </div>
+</form>
+</div>
+
+<!-- <br style="background-repeat:no-repeat; line-height:36vh; overflow: hidden; position:fixed; display: block;"> -->
+</div>
+</div>
+<br /><br /><br />
+<footer>
+  <p> GallerisA, copyright &copy; 2017 </p>
+</footer>

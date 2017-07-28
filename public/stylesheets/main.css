@@ -1,0 +1,87 @@
+body{
+     /*background: linear-gradient( rgba(255,100,50,0), rgba(255,120,20,0.7)) no-repeat fixed;*/
+     background: linear-gradient( rgba(25,55,215,0.8), rgba(0,0,0,0.9)) no-repeat fixed;
+     /*background: linear-gradient( rgba(255,0,0,0), rgba(60,90,150,50.7)) no-repeat fixed;*/
+   /*background-image: url("https://cdn.pixabay.com/photo/2017/06/27/07/56/cloud-2446592_960_720.jpg");*/
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+.blue{
+    background: linear-gradient( rgba(255,0,0,0), rgba(100,180,70,50.7));
+}
+.navbar{
+    min-height: 40px;
+    max-height: 250px;
+}
+
+.jumbotron {
+     /*background: linear-gradient( rgba(255,100,50,0), rgba(255,120,50,0.5));*/
+     background: linear-gradient( rgba(30,90,235,0.7), rgba(0,0,0,0.8));
+    /*background-image: url("https://www.standards.govt.nz/assets/touchstone-articles/thumbnails/clouds-2.jpg");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#com{
+    background: linear-gradient( rgba(30,80,235,0.4), rgba(0,0,0,0.5));
+    /*background: linear-gradient( rgba(30,80,245,0.2), rgba(0,0,0,0.2));*/
+    /* Standard syntax (must be last)
+    /*background-image: url("https://www.standards.govt.nz/assets/touchstone-articles/thumbnails/clouds-2.jpg");*/
+    /*opacity: 0.8;*/
+
+}
+.cap{
+    cursor: pointer;
+}
+#com:hover{
+    background-color: blue;
+}
+#comf{
+    background: linear-gradient( rgba(30,80,235,0.9), rgba(0,0,0,0.9));
+    color: white;
+}
+.thumbnail img {
+    width: 100%;
+}
+.thumbnail{
+    padding: 0;
+}
+.thumbnail .caption-full {
+    padding: 9px;
+}
+#delete-form{
+    display: inline;
+}
+.delete-form{
+    display: inline;
+}
+#arch{
+    font-family: 'Architects Daughter', cursive;
+}
+.jumbotron{
+    background-color: #eea;
+
+}
+.col-sm-2{
+    width: 300px;
+    display: block;
+}
+.col-md-2{
+    width: 400px;
+}
+#mainNav{
+    text-align: center;
+}
+#menu1{
+    margin: 4px 4px 0px 0px;
+}
+/*body{*/
+/*background-color: #2d3133;*/
+/*    -webkit-filter: invert(90%);*/
+/*    filter: invert(90%);*/
+/*}*/

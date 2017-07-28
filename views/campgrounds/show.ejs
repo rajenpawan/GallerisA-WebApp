@@ -1,0 +1,139 @@
+<!--<h1>This is the Show Template!!</h1>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" >
+  <title>Gallerisa | Show</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/stylesheets/main.css"> -->
+  <link rel = "stylesheet" href="/stylesheets/amco.css"
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+</head>
+
+</html>
+<body>
+  <header>
+    <div class="container-fluid" id="arch">
+      <div id="branding">
+        <h1><a href="/"><span style="font-size:23px" class="highlight">GallerisA</span></a></h1>
+      </div>
+      <nav style="float:left; display:inline;">
+        <ul >
+          <li><a  href="/campgrounds">Home</a></li>
+          <li><a  href="">About</a></li>
+        </ul>
+      </nav>
+      <nav style="float:right; display:inline;">
+        <ul class="tid">
+          <% if(!currentUser){ %>
+          <li class="tid"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+          <li class="tid"><a href="/register"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
+          <% } else { %>
+            <li><image src="<%= currentUser.avatar %>" id="menu1" style="height:3em; width:auto; border-radius:5px;" class="rounded-circle"></image></li>
+            <li><a id="arch" href="/users/<%= currentUser._id %>">Signed in as <strong><%= currentUser.username %></strong></a></li>
+            <li><a id="arch" href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+          <% } %>
+        </ul>
+      </nav>
+
+        <nav  class="navbar-default navbar-static-top">
+      <div class="container-fluid">
+
+             <button style="float:right; display:inline;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </button>
+             </div>
+             <div class="collapse navbar-collapse" id="mainNav">
+                 <ul class="nav navbar-nav navbar-right" >
+                    <% if(!currentUser){ %>
+                     <li ><a id="arch" href="/login"><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
+                     <li ><a id="arch" href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <% } else { %>
+                    <li  ><image src="<%= currentUser.avatar %>"  id="menu1" style= " height:3em; width:auto; border-radius: 5px;" class="rounded-circle"></image></li>
+                     <li ><a id="arch" href="/users/<%= currentUser._id %>">Signed In As <strong> <%= currentUser.username %></strong></a></li>
+                     <li ><a id="arch" href="/logout"><span class="glyphicon glyphicon-off"></span> LogOut</a></li>
+                    <% } %>
+                 </ul>
+          </div>
+      </div>
+      </nav>
+      </header>
+<br />
+
+<!-- Show -->
+<div class="container" style="width:100%">
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="list-group">
+                <li class="list-group-item active">Info1</li>
+                <li class="list-group-item">Info1</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail ">
+             <img class="img-responsive" src = "<%= campground.image %>" style="width:55%%; border-radius: 5px;";>
+
+                <div id="comf" class="caption-full">
+                    <h4 class="pull-right">$<%= campground.price %>/per piece</h4>
+                    <h2 class="cap"><a><%= campground.name %></a></h2>
+                    <p><%= campground.description %></p>
+                    <p>
+                        <em>Submitted by -</em> <strong><a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a></strong>
+                        </p>
+
+                        <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                        <a id="arch" class="btn btn-xs btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+                        <form id="delete-form" action="/campgrounds/<%= campground._id%>?_method=DELETE" method="POST">
+                            <button id="arch" class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                        <% } %>
+                </div>
+            </div>
+            <div id="com" class="well">
+                <div class="text-right">
+                    <a id="arch" class="btn btn-success" href="/campgrounds/<%= campground._id%>/comments/new">Add new Comment</a>
+                </div>
+                <hr style="box-shadow: 0px 0.1px">
+                <% campground.comments.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%= comment.author.username %></strong>
+                        <span class="pull-right">10 days ago</span>
+                        <p>
+                       <%= comment.text %>
+                        </p>
+
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                        <a id="arch" class="btn btn-xs btn-warning"
+                        href="/campgrounds/<%=campground._id %>/comments/<%=comment._id%>/edit">
+                        Edit
+                        </a>
+                        <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                            <input id="arch" type="submit" class="btn btn-xs btn-danger" value="Delete">
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+
+            <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<footer style="position: relative">
+  <p>
+    GallerisA, copyright &copy; 2017  </p>
+</footer>
