@@ -1,11 +1,11 @@
 body{
     background-color: #000;
-    
+
 }
 
 #landing-header{
     /*z-index is forward and backward*/
-    z-index: 1;  
+    z-index: 1;
     position: relative;
     text-align: center;
     padding-top: 40vh;
@@ -38,28 +38,28 @@ body{
     background-repeat: no-repeat;
     opacity: 0;
     z-index: 0;
-    animation: imageAnimation 50s linear infinite;
+    animation: imageAnimation 25s linear infinite;
     /*linear means same animation speed for all images*/
 }
 
 .slideshow li:nth-child(1){
-    background: linear-gradient( rgba(255,0,0,0), rgba(255,100,20,0.6));
+  background: linear-gradient( rgba(255,0,0,0), rgba(255,0,0,0.4));
 }
 .slideshow li:nth-child(2){
     background: linear-gradient( rgba(255,0,0,0), rgba(100,180,70,50.7));
-    animation-delay: 10s;
+    animation-delay: 5s;
 }
 .slideshow li:nth-child(3){
     background: linear-gradient( rgba(255,0,0,0), rgba(60,90,150,50.7));
-    animation-delay: 20s;
+    animation-delay: 10s;
 }
 .slideshow li:nth-child(4){
     background: linear-gradient( rgba(255,0,0,0), rgba(200,150,255,0.9));
-    animation-delay: 30s;
+    animation-delay: 15s;
 }
 .slideshow li:nth-child(5){
-    background: linear-gradient( rgba(255,0,0,0), rgba(255,0,0,0.4));
-    animation-delay: 40s;
+    background: linear-gradient( rgba(255,0,0,0), rgba(255,100,20,0.6));
+    animation-delay: 20s;
 }
 
 @keyframes imageAnimation{
