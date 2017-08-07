@@ -74,6 +74,7 @@ header a:active{
 #arch{
   /*'Architects Daughter', cursive;*/
     font-family: 'Open Sans', sans-serif;
+
 }
 #delete-form{
     display: inline;
@@ -101,7 +102,8 @@ footer{
   .row{padding-top: 10%; }
   .spa{padding-top: 23%}
   .tid{display:none;}
-  .list-group-item{position: initial;}
+  .list-group-item{position: initial; }
+  header li{padding: 0 12px 0 12px;}
   footer{position: fixed;}
 
   /*.navbar select { display: inline-block; }*/

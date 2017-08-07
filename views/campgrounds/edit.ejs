@@ -49,12 +49,12 @@
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="nav navbar-nav navbar-right">
         <% if(!currentUser){ %>
-          <li><a id="arch" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-          <li><a id="arch" href="/register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+          <li><a class="had" id="arch" href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+          <li><a class="had" id="arch" href="/register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
         <% } else {%>
-          <li><image src="<%= currentUser.avatar%>" id="menu1" style="height:3em; width:auto; border-radius:5px;" class="rounded-circle"></image></li>
-          <li><a id="arch" href="/users/<%= currentUser._id %>">Signed in as <strong><%= currentUser.username %></strong></a></li>
-          <li><a id="arch" href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+          <li><image src="<%= currentUser.avatar%>" id="menu1" style="height:6em; width:auto; border-radius:5px;" class="rounded-circle"></image></li>
+          <li><a class="had" id="arch " href="/users/<%= currentUser._id %>">Signed in as <strong><%= currentUser.username %></strong></a></li>
+          <li><a class="had" id="arch" href="/logout"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
         <% } %>
       </ul>
 
