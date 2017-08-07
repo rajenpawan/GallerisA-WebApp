@@ -12,8 +12,9 @@ z-index: 1;
 
 .container{
 width: 80%;
-margin: auto;
+position: initial;
 overflow: hidden;
+padding-top: 5%;
 }
 ul{
   margin: 0;
@@ -27,6 +28,9 @@ header{
   padding-top: 10px;
   min-height: 70px;
   border-bottom: #e8491d 3px solid;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 header a{
   color: white;
@@ -89,13 +93,16 @@ footer{
   left: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .navbar-default     { display: inline-table; }
   .navbar-default button {display: block;}
   .navbar-default button {float: right;}
+  header{display: inline-block;  padding-top: 0;}
+  .row{padding-top: 10%; }
+  .spa{padding-top: 23%}
   .tid{display:none;}
+  .list-group-item{position: initial;}
   footer{position: fixed;}
-  
 
   /*.navbar select { display: inline-block; }*/
 }
